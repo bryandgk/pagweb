@@ -76,15 +76,15 @@
 			</div>
 			<div class="col-md-9 p-4">
 				<h3>Update <%= user.getId() %></h3>
-				<form action="/users/update?userId?<%= user.getId()%>">
+				<form action="/users/update?userId=<%= user.getId()%>" method="post">
 					<p>Role <span class="text-danger">*</span></p>
-					<select class="form-control form-group w-25" name="rol" value="<%=user.getRole()%>">
+					<select class="form-control form-group w-25" name="rol">
 					<%  
 						if(roles.size()>0){
 							for(int i=0 ; i<roles.size();i++){
 								Role o = (Role) roles.get(i);
 					%>
-								<option><%= o.getRoles() %></option>
+								<option value="<%= o.getId()%>"><%= o.getRoles() %></option>
 					<%
 							}
 						}else{
@@ -97,7 +97,7 @@
 					</select>
 					<p>Email<span class="text-danger">*</span></p>
 					<input class="form-control form-group w-50" name="correo" type="email" value="<%= user.getEmail()%>" maxlength="30" placeholder="Example: example@gmail.com" required>
-					<p>Género <span class="text-danger">*</span> </p>
+					<p>GÃ©nero <span class="text-danger">*</span> </p>
 					<select class="form-control form-group w-25" name="gender" value="true">
 						<option>masculino</option>
 						<option>femenino</option>
