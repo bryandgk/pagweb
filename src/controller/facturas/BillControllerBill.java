@@ -76,9 +76,16 @@ public class BillControllerBill extends HttpServlet {
 								req.getRequestDispatcher("/WEB-INF/Views/Factura/index.jsp").forward(req, resp);
 							}
 							else{
-								error = "solo es administrador puede editar.";
-								req.setAttribute("error", error);
-								req.getRequestDispatcher("/WEB-INF/Views/Errors/error5.jsp").forward(req, resp);
+								if(idRoleAdmin.equals(searchAccess.get(0).getIdRol()) && searchAccess.get(0).getResource().equals("/facturas")){
+									String query = "select  from " + Facturar.class.getName();
+									List<Facturar> listas = (List<Facturar>) pm.newQuery(query).execute();
+									req.setAttribute("listas", listas);
+									req.getRequestDispatcher("/WEB-INF/Views/Factura/index.jsp").forward(req, resp);
+								} else {
+									error = "solo es administrador puede editar.";
+									req.setAttribute("error", error);
+									req.getRequestDispatcher("/WEB-INF/Views/Errors/error5.jsp").forward(req, resp);
+								}
 							}
 						}
 					}
