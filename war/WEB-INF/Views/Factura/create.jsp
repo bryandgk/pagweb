@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head lang="en">
@@ -84,7 +84,7 @@
 						<h4>Product/Unity</h4><br>
 						<input class="form-control" type="number" pattern="[0-9]{4,6}" step="0.0001" min="0.0001" name="precioProducto" placeholder="Product/Unity" required><br>
 						
-						<input class="btn btn-success" type="submit" value="Añadir">
+						<input class="btn btn-success" type="submit" value="AÃ±adir">
 					</form>
 				</div>
 			</div>
