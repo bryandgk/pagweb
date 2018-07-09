@@ -12,13 +12,13 @@ public class Access {
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	private Long id;
 	@Persistent
-	private String rol;
+	private Long idRol;
 	@Persistent
 	private String resource;
 	@Persistent
 	private boolean status;
-	public Access(String rol, String resource, boolean status) {
-		this.rol = rol;
+	public Access(Long rol, String resource, boolean status) {
+		this.idRol = rol;
 		this.resource = resource;
 		this.status = status;
 	}
@@ -28,11 +28,11 @@ public class Access {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getRol() {
-		return rol;
+	public Long getIdRol() {
+		return idRol;
 	}
-	public void setRol(String rol) {
-		this.rol = rol;
+	public void setIdRol(Long rol) {
+		this.idRol = rol;
 	}
 	public String getResource() {
 		return resource;
