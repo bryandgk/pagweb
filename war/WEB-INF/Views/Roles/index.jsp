@@ -74,7 +74,7 @@
 				</div>
 			</div>
 			<div class="col-md-9 p-4">
-				<h1>Users</h1>
+				<h1>Roles</h1>
 				<%
 					if(!roles.isEmpty() && roles.size() > 0){
 				%>
