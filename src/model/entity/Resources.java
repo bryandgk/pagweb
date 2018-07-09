@@ -12,11 +12,11 @@ public class Resources {
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	private Long id;
 	@Persistent
-	private String name;
+	private String url;
 	@Persistent
 	private boolean status;
 	public Resources(String name, boolean status) {
-		this.name = name;
+		this.url = name;
 		this.status = status;
 	}
 	public Long getId() {
@@ -26,10 +26,10 @@ public class Resources {
 		this.id = id;
 	}
 	public String getName() {
-		return name;
+		return url;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.url = name;
 	}
 	public boolean isStatus() {
 		return status;
