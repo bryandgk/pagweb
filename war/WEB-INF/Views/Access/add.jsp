@@ -76,7 +76,7 @@
 				</div>
 			</div>
 			<div class="col-md-9 p-3">
-				<form class="form-control" action="/access/add" method="get">
+				<form class="form-control" action="/access/add" method="post">
 					<div class="form-group p-3">
 						<p>Rol<span class="text-danger">*</span></p>
 						<select  class="form-control" name="rol">
@@ -84,7 +84,7 @@
 							for(int i = 0 ; i<roles.size(); i++){
 								Role o = (Role) roles.get(i);
 						%>
-								<option><%=o.getRoles() %></option>
+								<option value="<%= o.getId()%>"><%=o.getRoles() %></option>
 						<%} %>
 						</select>
 					</div>	
