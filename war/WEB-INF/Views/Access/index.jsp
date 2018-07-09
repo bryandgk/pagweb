@@ -95,7 +95,7 @@
 					<tbody>
 						<tr>
 							<td><%= o.getId()%></td>
-							<td><%= o.getRol()%></td>
+							<td><%= o.getIdRol()%></td>
 							<td><%= o.getResource()%></td>
 							<td><%= o.isStatus()%></td>
 							<td>
