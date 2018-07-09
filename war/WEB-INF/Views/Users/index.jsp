@@ -98,7 +98,7 @@
 						<tr>
 							<td><%= o.getId()%></td>
 							<td><%= o.getEmail()%></td>
-							<td><%= o.getRole()%></td>
+							<td><%= o.getIdRole()%></td>
 							<td><%= o.isGender()%></td>
 							<td><%= o.isStatus()%></td>
 							<td>
