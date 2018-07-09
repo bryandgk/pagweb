@@ -12,21 +12,17 @@ public class User {
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	private Long id;
 	@Persistent
-	private String role;
+	private Long idRole;
 	@Persistent
 	private String email;
 	@Persistent
 	private boolean gender;
 	@Persistent
-	private boolean status;
-	
-	public User(){
-		
-	}
-	public User(String email, String role, boolean gender, boolean status) {
+	private boolean status;	
+	public User(String email, Long role, boolean gender, boolean status) {
 		super();
 		this.email = email;
-		this.role = role;
+		this.idRole = role;
 		this.gender = gender;
 		this.status = status;
 	}
@@ -42,11 +38,11 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getRole() {
-		return role;
+	public Long getIdRole() {
+		return idRole;
 	}
-	public void setRole(String role) {
-		this.role = role;
+	public void setIdRole(Long role) {
+		this.idRole = role;
 	}
 	public boolean isGender() {
 		return gender;
