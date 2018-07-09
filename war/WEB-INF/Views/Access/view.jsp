@@ -1,13 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"%>
-<%@ page import = "model.entity.Access" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="model.entity.Resources" %>
+<%@ page import="model.entity.Access" %>
+<%@ page import="model.entity.Role" %>
+
+<%@ page import="java.util.List" %>
 
 <%
-Access access = (Access) request.getAttribute("access");
+ 	ArrayList<String> resource = (ArrayList<String>) request.getAttribute("resource");
+	Access res = (Access) request.getAttribute("res");
+	List<Role> roles = (List<Role>) request.getAttribute("roles"); 
 %>
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Access</title>
+		<title>Access Update</title>
 		<meta charset="utf-8">
   		<meta name="viewport" content="width=device-width, initial-scale=1">
   		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
@@ -66,35 +73,49 @@ Access access = (Access) request.getAttribute("access");
 	</div>
 	<div class="container">
 		<div class="row">
-			<div class=" col-md-3 p-4"> 
-				<div class="">
-					<h1 class="text-center text-success font-weight-bold">Actions</h1>
-					<ul >
-						<li class="btn form-control bg-success mx-auto"><a class="btn btn-success" href="/access/add">Add Access</a></li>
-						<li class="btn form-control bg-success"><a class="btn btn-success" href="/access/update?userId=<%= access.getId() %>">Update</a></li>
-						<li class="btn form-control bg-success"><a class="btn btn-success" href="/access/delete?userId=<%= access.getId() %>">Delete</a></li>
-						<li class="btn form-control bg-success"><a class="btn btn-success" href="/access">List of Access</a></li>
-					</ul>
-				</div>
+			<div class="opcion col-md-3 mx-auto p-4">
+				<a class="btn btn-success" href="/access">Lists of Access</a>
 			</div>
-			<div class="table col-md-9 large-9 medium-8 colums p-4"> 
-				<h2 class="text-success border-bottom border-success">User with Id:  <%= access.getId() %></h2>
-					<table class="vertical-table">
-						<tbody>
-							<tr>
-								<th scope="row">Role</th>
-								<td><%=access.getRol()%></td>
-							</tr>
-							<tr>
-								<th scope="row">Resource</th>
-								<td><%=access.getResource()%></td>
-							</tr>
-							<tr>
-								<th scope="row">Status</th>
-								<td><%= access.isStatus()%></td>
-							</tr>
-						</tbody>
-					</table>
+			<div class="derecha col-md-9">
+				<h1 class="text-success border-bottom border-success">Update Access</h1><br>
+				
+				<form class="form-control" action="/access/update?userId=<%=res.getId() %>" method="post">
+		
+					<h2>Id <%= res.getId() %></h2>
+					<p class="border-bottom border-danger">Rol usado: <span class="text-danger"> "<%= res.getIdRol() %>"</span></p>
+					<div class="form-group">
+						<h4>Busque y Modifique aqui Rol</h4>
+					<select class="form-control w-50" name="rol">
+								<%
+									if(roles.size()>0){
+										for(int i = 0; i<roles.size();i++){
+											Role o = (Role) roles.get(i);
+								%>
+											<option value="<%= o.getId() %>"><%= o.getRoles() %></option>
+								<% 			
+										}
+									}
+								%>
+					</select>	
+					</div>
+					<p class="border-bottom border-danger">Recurso usado:  <span class="text-danger">"<%= res.getResource() %>"</span></p>
+					<div class="form-group">
+						<h4>Busque y Modifique aqui Resource</h4>
+					<select class="form-control w-50" name="resource">
+								<%
+									if(resource.size()>0){
+										for(String i: resource){
+								%>
+											<option><%= i %></option>
+								<% 			
+										}
+									}
+								%>
+					</select>	
+					</div>
+					
+					<input  class="btn btn-success" type="submit" value="Actualizar"/>
+				</form>
 			</div>
 		</div>
 	</div>
