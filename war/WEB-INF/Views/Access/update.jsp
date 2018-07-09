@@ -82,7 +82,7 @@
 				<form class="form-control" action="/access/update?userId=<%=res.getId() %>" method="post">
 		
 					<h2>Id <%= res.getId() %></h2>
-					<p class="border-bottom border-danger">Rol usado: <span class="text-danger"> "<%= res.getRol() %>"</span></p>
+					<p class="border-bottom border-danger">Rol usado: <span class="text-danger"> "<%= res.getIdRol() %>"</span></p>
 					<div class="form-group">
 						<h4>Busque y Modifique aqui Rol</h4>
 					<select class="form-control w-50" name="rol">
@@ -91,7 +91,7 @@
 										for(int i = 0; i<roles.size();i++){
 											Role o = (Role) roles.get(i);
 								%>
-											<option><%= o.getRoles() %></option>
+											<option value="<%= o.getId() %>"><%= o.getRoles() %></option>
 								<% 			
 										}
 									}
