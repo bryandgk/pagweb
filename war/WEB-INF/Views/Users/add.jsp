@@ -75,7 +75,7 @@
 			<div class="col-md-9 p-4">
 				<h2 class="text-success">Add user</h2>
 				<span class="border border-bottom-3"></span>
-				<form action="/users/add" method="get">
+				<form action="/users/add" method="post">
 				
 					<p>Email <span class="text-danger">*</span></p>
 					<input class="form-control w-50" name="correo" type="email" maxlength="30" placeholder="Example: example@gmail.com" required>
@@ -87,7 +87,7 @@
 							for(int i=0 ; i<roles.size();i++){
 								Role o = (Role) roles.get(i);
 					%>
-								<option><%= o.getRoles() %></option>
+								<option value="<%= o.getId()%>"><%= o.getRoles() %></option>
 					<%
 							}
 						}else{
@@ -98,12 +98,12 @@
 						}
 					%>
 					</select>
-					<p>Género</p>
+					<p>GÃ©nero</p>	
 					<select class="form-control w-25" name="gender">
 						<option>masculino</option>
 						<option>femenino</option>
 					</select>
-					<input type="hidden" name="action" value="create"> 
+					 
 					<input class="btn btn-success form-control w-25" type="submit" name="enviar" value="Enviar" >
 				</form>	
 			</div>
