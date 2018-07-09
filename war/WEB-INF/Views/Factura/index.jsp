@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "java.util.List"  %>
 <%@ page import = "java.text.SimpleDateFormat" %>
-<%@ page import = "controller.facturas.*" %>
 <%@page import= "model.entity.Facturar" %>
 
 <%
@@ -89,10 +88,10 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>n°</th>
+					<th>nÂ°</th>
 					<th>Codigo Producto</th>
 					<th>Cantidad</th>
-					<th>Descripción</th>
+					<th>DescripciÃ³n</th>
 					<th>Precio/unidad</th>
 					<th>total</th>
 					<th>Acciones</th>
